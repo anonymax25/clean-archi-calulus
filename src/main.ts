@@ -4,27 +4,28 @@ import { ValuesParser } from './infra/ValuesParser';
 import { OperatorParser } from './infra/OperatorParser';
 import { Value } from './domaine/Value';
 import { Operator } from './domaine/Operator.enum.';
+import { OperationRunner } from './infra/OperationRunner';
 
 
 
 const main = async (args: string[]) => {
+
     Logger.doLogging = args[2] === 'log'
+
+    Logger.log(`start of program`)
+
     
     const filename: string = args[0]
-    const parseValues = new ValuesParser(filename).parse()
+    const values = new ValuesParser(filename).parse()
     const operator: Operator = new OperatorParser(args[1]).parse()
 
-    let state: number = 0;
-    Promise.all(await parseValues.map(async (parseValue, i) => {
-        const value: Value = await parseValue
-        const operation = new Operation(value, i === 0 ? Operator.INIT : operator)
-        state = operation.run(state);
-        return;
-    }))
+    const runner = new OperationRunner(values, operator)
+    
+    await runner.run();
 
     Logger.print(`--------------`)
     
-    Logger.print(`Total = ${state}`)
+    Logger.print(`Total = ${runner.state}`)
 
     Logger.log(`end of program`)
 

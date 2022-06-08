@@ -4,9 +4,15 @@ import { Logger } from "../utils/Logger";
 
 
 export class Operation {
+    private _result = 0;
+
+    get result () {
+        return this._result;
+    }
+
     constructor(private value: Value, private operator: Operator) {}
 
-    public run(current: number): number {
+    public run(current: number): void {
         let result = 0;
         switch(this.operator) {
             case Operator.MINUS:
@@ -25,7 +31,7 @@ export class Operation {
         } else {
             Logger.print(`${this.operator}${this.value.value} (=${result})`)
         }
-        return result;
+        this._result = result;
     }
 
 }
