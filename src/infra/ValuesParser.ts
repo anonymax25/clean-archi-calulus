@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
-import { Logger } from "./Logger";
-import { Value } from "./Value";
+import { Logger } from "../utils/Logger";
+import { Value } from "../domaine/Value";
 
 export class ValuesParser {
 

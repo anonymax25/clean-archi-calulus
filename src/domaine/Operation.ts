@@ -1,6 +1,6 @@
 import { Value } from "./Value";
 import { Operator } from "./Operator.enum.";
-import { Logger } from "./Logger";
+import { Logger } from "../utils/Logger";
 
 
 export class Operation {

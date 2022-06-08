@@ -1,9 +1,9 @@
-import { Logger } from './Logger';
-import { Operation } from './Operation';
-import { ValuesParser } from './ValuesParser';
-import { OperatorParser } from './OperatorParser';
-import { Value } from './Value';
-import { Operator } from './Operator.enum.';
+import { Logger } from './utils/Logger';
+import { Operation } from './domaine/Operation';
+import { ValuesParser } from './infra/ValuesParser';
+import { OperatorParser } from './infra/OperatorParser';
+import { Value } from './domaine/Value';
+import { Operator } from './domaine/Operator.enum.';
 
 
 

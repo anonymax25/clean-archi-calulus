@@ -1,5 +1,5 @@
-import { Logger } from "./Logger";
-import { Operator } from "./Operator.enum.";
+import { Logger } from "../utils/Logger";
+import { Operator } from "../domaine/Operator.enum.";
 
 export class OperatorParser {
 
